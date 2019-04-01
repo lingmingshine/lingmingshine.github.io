@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>苓茗的杂货铺</title>
+  <title>lingering</title>
   
-  <subtitle>闷骚而近妖，古怪而近孽</subtitle>
+  <subtitle>a</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://liuzijian.top/"/>
@@ -10,7 +10,7 @@
   <id>http://liuzijian.top/</id>
   
   <author>
-    <name>刘子健</name>
+    <name>l</name>
     
   </author>
   

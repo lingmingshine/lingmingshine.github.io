@@ -367,7 +367,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/09/18/20190918/" class="post-title-link" itemprop="url">Untitled</a>
+                <a href="/2019/09/18/20190918/" class="post-title-link" itemprop="url">vue前端学习和element-UI框架的基础使用</a>
               
             
           </h1>
@@ -409,7 +409,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-09-19 22:05:38" itemprop="dateModified" datetime="2019-09-19T22:05:38+08:00">2019-09-19</time>
+                <time title="Modified: 2019-09-19 22:12:27" itemprop="dateModified" datetime="2019-09-19T22:12:27+08:00">2019-09-19</time>
               
             
           </span>
@@ -445,12 +445,13 @@
       
         
           
-            <p>####vue前端学习和element-UI框架的基础使用</p>
-<p>######问题描述：el-table 表格合并，第二行多列进行合并，并且合计金额等数据</p>
-<h6 id="解决方法：拿到table数据list之后，将合计total-unshift到list数组里面，这样就能实现合计在表格的第一行"><a href="#解决方法：拿到table数据list之后，将合计total-unshift到list数组里面，这样就能实现合计在表格的第一行" class="headerlink" title="解决方法：拿到table数据list之后，将合计total unshift到list数组里面，这样就能实现合计在表格的第一行"></a>解决方法：拿到table数据list之后，将合计total unshift到list数组里面，这样就能实现合计在表格的第一行</h6><p><code>代码</code></p>
+            <p>问题描述：el-table 表格合并，第二行多列进行合并，并且合计金额等数据</p>
+<p>解决方法：拿到table数据list之后，将合计total unshift到list数组里面，这样就能实现合计在表格的第一行</p>
+<p><code>代码</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//table 对应的label和value值 循环打印</span><br><span class="line">&lt;el-table-column</span><br><span class="line">	v-for=&quot;(item.index) in tableList&quot;</span><br><span class="line">  :key=&quot;index&quot;</span><br><span class="line">  :prop=&quot;item.prop&quot;</span><br><span class="line">  :label=&quot;item.label&quot;</span><br><span class="line">  width=&quot;180&quot;</span><br><span class="line">  align=&quot;center&quot;&gt;</span><br><span class="line">  </span><br><span class="line">&lt;/el-table-column&gt;</span><br></pre></td></tr></table></figure>
 <p>所以问题出现了，这样循环打印出来的table，里面的第二行是无法添加合计值的，</p>
 <p>所以最后合计的值是需要将unshift到tableList里面去。这样第一行就可以输出在第一行了</p>
+<p><code>代码</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//第一行合并，需要用到span-method方法：arraySpanMethod</span><br><span class="line">arraySpanMethod(&#123;row,column,rowIndex,columnIndex&#125;)&#123;</span><br><span class="line">	if(rowIndex == 0)&#123;</span><br><span class="line">		if(columnIndex == 0)&#123;</span><br><span class="line">					return [1,4]	//第一行的前四列都设置为合计</span><br><span class="line">		&#125;else if(columnIndex &gt; 0 &amp;&amp; columnIndex &lt; 4)&#123;</span><br><span class="line">					return [0,0]   //表示在第一行的第二到第四列都合并</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>因为这样的想法只是在理论上实现了，而自己的项目上还没有实现，所以有待接下来的更新。</p>
 
